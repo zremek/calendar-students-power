@@ -3,28 +3,41 @@
 library(calendR)
 library(tidyverse)
 
-
-poczatek <- "2020-10-01"
-koniec <- "2020-12-31"
-
-my_fills <- rep(
-  NA, 
-  as.numeric(difftime(as.POSIXct(koniec),
+as_num_difftime <- function(end, beginning) {
+  as.numeric(difftime(as.POSIXct(end),
                       as.POSIXct(poczatek),
                       units = "days") 
              + 1)
-  )
+}
+
+poczatek <- "2020-11-01"
+koniec <- "2021-01-31"
+rekrutacja_start <- "2020-11-07"
+rekrutacja_stop <- "2020-12-04"
+zaczynasz <- "2021-01-11"
+
+my_fills <- rep(
+  NA,
+  as_num_difftime(koniec, poczatek)
+)
+
 
 # Add the events to the desired days
-my_fills[c(26:sum(26, 11))] <- "czas na zgłoszenie"
-my_fills[31 + 30 + 7] <- "zaczynasz staż"
+my_fills[as_num_difftime(
+  rekrutacja_start,
+  poczatek):as_num_difftime(
+    rekrutacja_stop,
+    poczatek)] <- "czas na zgłoszenie"
+
+my_fills[as_num_difftime(zaczynasz,
+                         poczatek)] <- "zaczynasz staż"
 
 # Add a legend if desired
 
 
 cal <- calendR(start_date = poczatek, end_date = koniec,
                special.days = my_fills,
-               special.col = c("#b6b2ae", "#e5881b"),    # Add as many colors as events
+               special.col = c("#b6b2ae", "#e5881b"),    
                legend.pos = "bottom",
                start = "M",
                # font.family = "Roboto",
@@ -36,5 +49,3 @@ cal <- calendR(start_date = poczatek, end_date = koniec,
 
 ggsave(filename = paste(poczatek, koniec, ".png", sep = "_"),
        plot = cal, units = "cm", width = 15, height = 10)
-
-# todo: wrap my_fills to function, for calculating indexes iside []
