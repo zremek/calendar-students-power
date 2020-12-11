@@ -4,17 +4,17 @@ library(calendR)
 library(tidyverse)
 
 as_num_difftime <- function(end, beginning) {
-  as.numeric(difftime(as.POSIXct(end),
-                      as.POSIXct(poczatek),
+  round(as.numeric(difftime(as.POSIXct(end),
+                      as.POSIXct(beginning),
                       units = "days") 
-             + 1)
+             + 1))
 }
 
-poczatek <- "2020-12-01"
-koniec <- "2021-02-28"
-rekrutacja_start <- "2020-12-05"
-rekrutacja_stop <- "2021-01-08"
-zaczynasz <- "2021-02-08"
+poczatek <- "2021-01-01"
+koniec <- "2021-03-31"
+rekrutacja_start <- "2021-01-09"
+rekrutacja_stop <- "2021-02-05"
+zaczynasz <- "2021-03-08"
 
 my_fills <- rep(
   NA,
