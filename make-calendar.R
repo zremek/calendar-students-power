@@ -3,6 +3,7 @@
 library(calendR)
 library(tidyverse)
 
+
 as_num_difftime <- function(end, beginning) {
   round(as.numeric(difftime(as.POSIXct(end),
                       as.POSIXct(beginning),
