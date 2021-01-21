@@ -11,11 +11,11 @@ as_num_difftime <- function(end, beginning) {
              + 1))
 }
 
-poczatek <- "2021-01-01"
-koniec <- "2021-03-31"
-rekrutacja_start <- "2021-01-09"
-rekrutacja_stop <- "2021-02-05"
-zaczynasz <- "2021-03-08"
+poczatek <- "2021-02-01"
+koniec <- "2021-04-30"
+rekrutacja_start <- "2021-02-06"
+rekrutacja_stop <- "2021-03-05"
+zaczynasz <- "2021-04-06"
 
 my_fills <- rep(
   NA,
@@ -50,3 +50,4 @@ cal <- calendR(start_date = poczatek, end_date = koniec,
 
 ggsave(filename = paste(poczatek, koniec, ".png", sep = "_"),
        plot = cal, units = "cm", width = 15, height = 10)
+
