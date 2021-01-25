@@ -47,5 +47,5 @@ cal <- calendR(start_date = poczatek, end_date = koniec,
                day.size = 4
 )
 
-ggsave(filename = paste(poczatek, koniec, ".png", sep = "_"),
+ggsave(filename = paste(poczatek, koniec, "_win7.png", sep = "_"),
        plot = cal, units = "cm", width = 15, height = 10)
