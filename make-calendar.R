@@ -11,11 +11,11 @@ as_num_difftime <- function(end, beginning) {
              + 1))
 }
 
-poczatek <- "2021-02-01"
-koniec <- "2021-04-30"
-rekrutacja_start <- "2021-02-06"
-rekrutacja_stop <- "2021-03-05"
-zaczynasz <- "2021-04-06"
+poczatek <- "2021-07-01"
+koniec <- "2021-09-30"
+rekrutacja_start <- "2021-07-03"
+rekrutacja_stop <- "2021-08-06"
+zaczynasz <- "2021-09-06"
 
 my_fills <- rep(
   NA,
